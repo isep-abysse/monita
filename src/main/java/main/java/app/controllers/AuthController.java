@@ -19,6 +19,6 @@ public class AuthController {
     @GetMapping("/{email}")
     public User getUser(@PathVariable String email) {
         System.out.println("Getting user with email " + email);
-        return repo.findByUsername(email);
+        return repo.findByEmail(email);
     }
 }

@@ -3,22 +3,18 @@ package main.java.app.models;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 
+import java.io.Serializable;
 import java.util.List;
 
 @Data
-public class Classroom {
+public class Classroom implements Serializable {
 
     @Id
     private String id;
+    private String name;
     private User teacher;
     private List<User> students;
 
-    public Classroom() {}
-
-    public Classroom(User teacher, List<User> students) {
-        this.teacher = teacher;
-        this.students = students;
-    }
 
     public User getTeacher() {
         return teacher;

@@ -6,6 +6,9 @@ import main.java.app.repositories.UserRepo;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
+@CrossOrigin(origins = "http://localhost:3000", maxAge = 3600)
 @RestController
 @RequestMapping("/users")
 public class UserController {
@@ -24,6 +27,13 @@ public class UserController {
         return repo.save(user);
     }
 
+    // Get all students
+    @GetMapping
+    public List<User> getAllUsers() {
+        System.out.println("Getting all students");
+        return repo.findAllByRole("student");
+    }
+
     // Get user
     @GetMapping("/{id}")
     public User getUser(@PathVariable String id) {
@@ -39,11 +49,11 @@ public class UserController {
         repo.delete(user);
     }
 
-    // Update username
+    // Update email
     @PutMapping("/{id}")
     public User updateUsername(@PathVariable String id, @RequestBody User updatedUser) {
         User user = repo.findById(id).orElseThrow(ResourceNotFoundException::new);
-        user.setUsername(updatedUser.getUsername());
+        user.setEmail(updatedUser.getEmail());
         return repo.save(user);
     }
 
