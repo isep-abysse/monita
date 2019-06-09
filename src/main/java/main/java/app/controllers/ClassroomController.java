@@ -8,7 +8,6 @@ import main.java.app.repositories.UserRepo;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:3000", maxAge = 3600)
@@ -48,10 +47,8 @@ public class ClassroomController {
 
     // Get all classrooms of one teacher
     @GetMapping("/all/{id}")
-    public Classroom getAllClassrooms(@PathVariable String id) {
+    public List<Classroom> getAllClassrooms(@PathVariable String id) {
         User teacher = userRepo.findById(id).orElseThrow(ResourceNotFoundException::new);
-//        List<Classroom> list;
-        /*list =*/return repo.findAllByTeacher(teacher);
-//        return list;
+        return repo.findAllByTeacher(teacher);
     }
 }

@@ -15,9 +15,12 @@ public class User implements Serializable {
 
     @Indexed(unique = true)
     private String email;
+    private String firstName;
+    private String lastName;
     private String password;
     private String role; // Allowed values: "prof", "student"
-    private List<Subject> subjects;
+    private List<Subject> subjects; // For students
+    private String subject; // For teacher
 
     @Override
     public String toString() {
@@ -40,6 +43,10 @@ public class User implements Serializable {
 
     public void setSubjects(List<Subject> subjects) {
         this.subjects = subjects;
+    }
+
+    public void addSubject(Subject subject) {
+        this.subjects.add(subject);
     }
 
     public String getRole() {

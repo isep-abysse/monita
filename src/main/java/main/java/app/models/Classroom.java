@@ -13,7 +13,7 @@ public class Classroom implements Serializable {
     private String id;
     private String name;
     private User teacher;
-    private List<User> students;
+    private List<String> students;
 
 
     public User getTeacher() {
@@ -24,16 +24,16 @@ public class Classroom implements Serializable {
         this.teacher = teacher;
     }
 
-    public List<User> getStudents() {
+    public List<String> getStudents() {
         return students;
     }
 
-    public void setStudents(List<User> students) {
+    public void setStudents(List<String> students) {
         this.students = students;
     }
 
-    public void addStudent(User student) {
-        List<User> students = getStudents();
+    public void addStudent(String student) {
+        List<String> students = getStudents();
         students.add(student);
     }
 }

@@ -11,6 +11,6 @@ public interface ClassroomRepo extends MongoRepository<Classroom, String> {
 
     Optional<Classroom> findById(String id);
 
-    /*List<*/Classroom findAllByTeacher(User teacher);
+    List<Classroom> findAllByTeacher(User teacher);
 
 }

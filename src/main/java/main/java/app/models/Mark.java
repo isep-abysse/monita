@@ -1,29 +1,25 @@
 package main.java.app.models;
 
 import lombok.Data;
+import org.springframework.data.annotation.Id;
+
+import java.io.Serializable;
 
 @Data
-public class Mark {
+public class Mark implements Serializable {
 
-    private double value;
+    @Id
+    private String id;
+    private int value;
     private String comment;
     private String type;
     private int coefficient;
 
-    public Mark() {}
-
-    public Mark(double value, String comment, String type, int coefficient) {
-        this.value = value;
-        this.comment = comment;
-        this.type = type;
-        this.coefficient = coefficient;
-    }
-
-    public double getValue() {
+    public int getValue() {
         return value;
     }
 
-    public void setValue(double value) {
+    public void setValue(int value) {
         this.value = value;
     }
 

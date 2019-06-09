@@ -49,19 +49,13 @@ public class UserController {
         repo.delete(user);
     }
 
-    // Update email
+    // Update marks
     @PutMapping("/{id}")
-    public User updateUsername(@PathVariable String id, @RequestBody User updatedUser) {
+    public void addMarks(@PathVariable String id, @RequestBody User updatedUser) {
         User user = repo.findById(id).orElseThrow(ResourceNotFoundException::new);
-        user.setEmail(updatedUser.getEmail());
-        return repo.save(user);
+        System.out.println(updatedUser.getSubjects());
+        user.setSubjects(updatedUser.getSubjects());
+        repo.save(user);
     }
 
-    // Add subject
-    @PutMapping("/{_id}/add")
-    public User addSubject(@PathVariable String id, @RequestBody User updatedUser) {
-        User user = repo.findById(id).orElseThrow(ResourceNotFoundException::new);
-        user.setSubjects(updatedUser.getSubjects());
-        return repo.save(user);
-    }
 }
