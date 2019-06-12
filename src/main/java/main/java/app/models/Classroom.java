@@ -12,28 +12,15 @@ public class Classroom implements Serializable {
     @Id
     private String id;
     private String name;
-    private User teacher;
+    private List<String> teachers;
     private List<String> students;
 
 
-    public User getTeacher() {
-        return teacher;
+    public List<String> getTeachers() {
+        return teachers;
     }
 
-    public void setTeacher(User teacher) {
-        this.teacher = teacher;
-    }
-
-    public List<String> getStudents() {
-        return students;
-    }
-
-    public void setStudents(List<String> students) {
-        this.students = students;
-    }
-
-    public void addStudent(String student) {
-        List<String> students = getStudents();
-        students.add(student);
+    public void setTeachers(List<String> teachers) {
+        this.teachers = teachers;
     }
 }
