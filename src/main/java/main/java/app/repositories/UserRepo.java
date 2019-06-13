@@ -13,5 +13,4 @@ public interface UserRepo extends MongoRepository<User, String> {
     Optional<User> findById(String id);
 
     List<User> findAllByRole(String role);
-
 }

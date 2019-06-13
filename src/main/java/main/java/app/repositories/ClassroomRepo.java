@@ -1,6 +1,5 @@
 package main.java.app.repositories;
 
-import main.java.app.models.User;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import main.java.app.models.Classroom;
 import org.springframework.data.mongodb.repository.Query;
@@ -17,6 +16,4 @@ public interface ClassroomRepo extends MongoRepository<Classroom, String> {
 
     @Query(" { 'teachers': ?0 } ")
     List<Classroom> findAllByTeacher(String teacherId);
-
-
 }

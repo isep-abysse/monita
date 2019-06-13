@@ -57,5 +57,4 @@ public class UserController {
         user.setSubjects(updatedUser.getSubjects());
         repo.save(user);
     }
-
 }
